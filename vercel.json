@@ -1,6 +1,6 @@
 {
   "installCommand": "pnpm install --filter @jonlix/web...",
-  "buildCommand": "pnpm --filter @jonlix/web build",
+  "buildCommand": "pnpm --filter @jonlix/web build && node scripts/build-lead-api.mjs",
   "outputDirectory": "apps/web/dist",
   "framework": null
 }
