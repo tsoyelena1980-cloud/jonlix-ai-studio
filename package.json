@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Jonlix AI Studio — лендинг, квиз и сервер заявок",
   "engines": {
-    "node": ">=22"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "pnpm run --parallel dev:web dev:server",
