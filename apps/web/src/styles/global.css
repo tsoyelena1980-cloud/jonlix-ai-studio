@@ -80,6 +80,23 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 2px; border: 0; text-decoration: none; cursor: pointer; }
 .btn-primary { background: var(--safelight); color: var(--print); font-weight: 500; box-shadow: 0 1px 0 rgba(30, 27, 24, .25); }
 .btn-primary:active { transform: translateY(1px); background: var(--safelight-press); box-shadow: none; }
+.quiz .btn-push {
+  width: 100%;
+  min-height: 60px;
+  margin: 14px 0 6px;
+  font-size: 20px;
+  border: 2px solid #6e221c;
+  box-shadow: 0 7px 0 #6e221c;
+  transition: transform 90ms ease, box-shadow 90ms ease, background 90ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.quiz .btn-push:active,
+.quiz .btn-push.is-down {
+  transform: translateY(7px);
+  box-shadow: 0 0 0 #6e221c;
+  background: var(--safelight-press);
+}
+.quiz .btn-push:disabled { opacity: 1; color: var(--print); }
 .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
 .btn-small { min-height: 40px; padding: 0 14px; }
 .text-btn { background: none; border: 0; padding: 8px 0; cursor: pointer; font-family: "PT Mono", monospace; text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }

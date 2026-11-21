@@ -47,6 +47,7 @@ export interface QuizState {
   startedAt: number;
   clientRequestId: string;
   status: 'in_progress' | 'submitting' | 'success' | 'error';
+  billReady?: boolean;
 }
 
 const PHOTO: StepId[] = ['service', 'photo_count', 'photo_purpose', 'deadline', 'contact_method', 'contacts'];
@@ -139,7 +140,7 @@ export function back(state: QuizState): QuizState {
   if (!state.history.length) return state;
   const history = state.history.slice(0, -1);
   const stepId = state.history[state.history.length - 1] ?? 'service';
-  return { ...state, history, stepId, status: 'in_progress' };
+  return { ...state, history, stepId, status: 'in_progress', billReady: false };
 }
 
 export function needsExtraText(state: QuizState): boolean {

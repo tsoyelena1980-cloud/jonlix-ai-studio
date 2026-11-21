@@ -152,6 +152,7 @@ export function mountQuiz(root: HTMLElement): void {
     dialog.addEventListener('keydown', (event) => trap(event, dialog, close));
     const title = dialog.querySelector<HTMLElement>('#quiz-title');
     title?.focus();
+    if (state.billReady) dialog.querySelector('.btn-push')?.scrollIntoView({ block: 'end' });
     const viewport = window.visualViewport;
     if (viewport) {
       const lift = () => {
@@ -234,10 +235,12 @@ export function mountQuiz(root: HTMLElement): void {
     const title = el('h2');
     title.id = 'quiz-title';
     title.tabIndex = -1;
-    title.textContent = questionText(state.stepId);
+    title.textContent = state.stepId === 'contacts' && state.billReady ? t('quiz.bill') : questionText(state.stepId);
     wrap.append(title);
-    if (state.stepId === 'contacts') wrap.append(receipt(), contactForm());
-    else wrap.append(options());
+    if (state.stepId === 'contacts') {
+      if (state.billReady) wrap.append(receipt());
+      wrap.append(contactForm());
+    } else wrap.append(options());
     return wrap;
   }
 
@@ -481,19 +484,68 @@ export function mountQuiz(root: HTMLElement): void {
     honeyInput.tabIndex = -1;
     honeyInput.autocomplete = 'off';
     honey.append(honeyInput);
-    const submit = el('button', 'btn btn-primary', state.status === 'submitting' ? t('quiz.preparing') : t('quiz.submit'));
-    submit.type = 'submit';
-    submit.disabled = !canSubmit() || state.status === 'submitting';
+    const missing = el('p', 'err');
+    missing.hidden = true;
+    missing.textContent = t('quiz.needContact');
     form.addEventListener('input', () => {
       saveState(state);
-      submit.disabled = !canSubmit();
+      if (canSubmit()) missing.hidden = true;
     });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
+      if (!canSubmit()) {
+        missing.hidden = false;
+        return;
+      }
+      if (!state.billReady) {
+        state = { ...state, billReady: true };
+        saveState(state);
+        paint(root);
+        return;
+      }
       void send(honeyInput.value);
     });
-    form.append(comment, consent, honey, el('p', 'fine', t('cta.note')), submit);
+    form.append(comment, consent, honey, el('p', 'fine', t('cta.note')), missing);
+    if (!state.billReady) {
+      const quote = el('button', 'btn btn-primary btn-push', t('quiz.submit'));
+      quote.type = 'button';
+      quote.addEventListener('click', () => {
+        pressButton(quote, () => {
+          if (!canSubmit()) {
+            missing.hidden = false;
+            quote.classList.remove('is-down');
+            quote.disabled = false;
+            return;
+          }
+          state = { ...state, billReady: true };
+          saveState(state);
+          paint(root);
+        });
+      });
+      form.append(quote);
+    } else {
+      const sendButton = el('button', 'btn btn-primary btn-push', state.status === 'submitting' ? t('quiz.preparing') : t('quiz.sendManager'));
+      sendButton.type = 'button';
+      sendButton.disabled = state.status === 'submitting';
+      sendButton.addEventListener('click', () => {
+        if (!canSubmit()) {
+          missing.hidden = false;
+          return;
+        }
+        pressButton(sendButton, () => {
+          void send(honeyInput.value);
+        });
+      });
+      form.prepend(sendButton);
+    }
     return form;
+  }
+
+  function pressButton(button: HTMLButtonElement, next: () => void) {
+    button.disabled = true;
+    button.classList.add('is-down');
+    button.setAttribute('aria-pressed', 'true');
+    window.setTimeout(next, 180);
   }
 
   async function send(website: string) {
