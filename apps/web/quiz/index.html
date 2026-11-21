@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ru" class="quiz-boot">
+<head>
+  <script>
+    if (/\/quiz\/?$/.test(location.pathname) || /(?:^|[?&])quiz=1(?:&|$)/.test(location.search)) {
+      document.documentElement.classList.add('quiz-boot');
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jonlix AI Studio — фотоателье, где снимки оживают</title>
+  <meta name="description" content="Портрет в любом городе, оживление семейных фото и видео к празднику. Фото от 50 000 сум, срок — неделя. Ташкент." />
+  <link rel="canonical" href="https://jonlix.uz/" />
+  <meta property="og:title" content="Jonlix AI Studio — фотоателье, где снимки оживают" />
+  <meta property="og:description" content="Портрет в любом городе, оживление семейных фото и видео к празднику. Фото от 50 000 сум, срок — неделя. Ташкент." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonlix.uz/" />
+  <meta property="og:image" content="https://jonlix.uz/og.svg" />
+  <meta name="theme-color" content="#F4EEE3" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+  <header class="top">
+    <a class="brand" href="/">
+      <span class="brand-name">Jonlix</span>
+      <span class="label">Фотоателье · AI</span>
+    </a>
+    <nav class="desk-nav" aria-label="Jonlix">
+      <a href="/#work">Работы</a>
+      <a href="/#prices">Цены</a>
+      <a href="/#order">Как заказать</a>
+      <a href="/#faq">Вопросы</a>
+    </nav>
+    <div class="top-tools">
+      <button class="btn btn-primary btn-small" type="button" data-open-quiz>Рассчитать</button>
+      <button class="menu-btn" type="button" data-menu aria-expanded="false">Меню</button>
+    </div>
+  </header>
+  <div class="sheet-nav" hidden data-sheet>
+    <button class="text-btn" type="button" data-menu-close>Закрыть</button>
+    <a href="/#work">Работы</a>
+    <a href="/#prices">Цены</a>
+    <a href="/#order">Как заказать</a>
+    <a href="/#faq">Вопросы</a>
+  </div>
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="label">Фотоателье Jonlix · Ташкент</p>
+        <h1>Фотоателье, где снимки <em>оживают</em></h1>
+        <p class="lead">Ваш портрет в любом городе мира, оживлённые семейные фото и видео к празднику. Фото — от 50 000 сум, готово за неделю.</p>
+        <button class="btn btn-primary" type="button" data-open-quiz>Рассчитать стоимость</button>
+        <p class="label note">6 вопросов · скидка 10%</p>
+      </div>
+      <div class="hero-prints">
+        <figure class="print tilt-a">
+          <div class="print-photo"><img src="/photos/hero-city.jpg" alt="здесь будет ваша история" /></div>
+          <figcaption class="hand">здесь будет ваша история</figcaption>
+        </figure>
+        <div class="hero-pair">
+          <figure class="print print-small tilt-b">
+            <div class="print-photo print-photo-old"><img src="/photos/hero-old.jpg" alt="исходный снимок" /></div>
+            <figcaption class="hand">исходный снимок</figcaption>
+          </figure>
+          <figure class="print print-small tilt-c">
+            <div class="print-photo print-photo-alive">
+              <video class="alive-video" poster="/photos/hero-alive.jpg" muted playsinline preload="none" aria-label="оживлённый снимок">
+                <source src="/photos/hero-alive.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <figcaption class="hand">оживлённый снимок</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="wrap section" id="services">
+      <p class="label">02 — Услуги</p>
+      <h2>Что мы делаем</h2>
+      <div class="mosaic">
+        <article class="print tilt-c">
+    <div class="print-photo"><img src="/photos/card-photo.jpg" alt="Фото в любой локации" /></div>
+    <h3>Фото в любой локации</h3>
+    <p>Вы на снимке — в городе, интерьере или образе, который выберете.</p>
+    <p class="mono">50 000 сум · за фото</p>
+    <button class="text-btn" type="button" data-quiz-service="photo">Заказать →</button>
+  </article>
+        <article class="print tilt-d">
+    <div class="print-photo"><img src="/photos/card-anim.jpg" alt="Оживление фотографий" /></div>
+    <h3>Оживление фотографий</h3>
+    <p>Старый или новый снимок становится коротким видео.</p>
+    <p class="mono">50 000 сум · за фото</p>
+    <button class="text-btn" type="button" data-quiz-service="animation">Заказать →</button>
+  </article>
+        <article class="print tilt-a">
+    <div class="print-photo"><img src="/photos/card-video.jpg" alt="Видео к событию" /></div>
+    <h3>Видео к событию</h3>
+    <p>Ролик к юбилею, свадьбе, дню рождения или «машине времени».</p>
+    <p class="mono">100 000 сум / 250 000 сум</p>
+    <button class="text-btn" type="button" data-quiz-service="video">Заказать →</button>
+  </article>
+      </div>
+    </section>
+    <section class="wrap section" id="work">
+      <p class="label">03 — Примеры</p>
+      <h2>Так это выглядит</h2>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab is-active" data-tab="photo" role="tab">Фото</button><button type="button" class="tab" data-tab="animation" role="tab">Оживление</button><button type="button" class="tab" data-tab="video" role="tab">Видео</button><button type="button" class="tab" data-tab="business" role="tab">Для бизнеса</button>
+      </div>
+      <div id="portfolio-grid" class="portfolio-grid" data-empty="Здесь скоро появятся работы. А пока — посмотрите другие разделы." data-was="было" data-now="стало"></div>
+    </section>
+    <section class="darkroom" id="video">
+      <figure class="holiday-poster">
+        <img src="/photos/video-holiday.jpg" alt="Jonlix AI Creative Studio — видео к празднику" />
+      </figure>
+      <div class="darkroom-side">
+        <div class="darkroom-copy">
+          <p class="label label-dim">04 — Проявочная</p>
+          <h2>Видео к празднику</h2>
+          <p class="lead dim">Два способа заказать ролик. Цена считается за каждые 15 секунд.</p>
+        </div>
+        <div class="darkroom-offers">
+          <article class="envelope">
+            <img src="/photos/card-script.jpg" alt="" />
+            <div>
+              <h3>Ваш сценарий</h3>
+              <p>Идея и сценарий уже есть — мы собираем видео.</p>
+              <p class="mono price">100 000 сум <span class="label label-dim">за 15 секунд</span></p>
+              <button class="btn btn-ghost" type="button" data-quiz-service="video">Выбрать вариант</button>
+            </div>
+          </article>
+          <article class="envelope">
+            <img src="/photos/card-turnkey.jpg" alt="" />
+            <div>
+              <h3>Под ключ</h3>
+              <p>Придумываем идею, пишем сценарий, делаем раскадровку и видео.</p>
+              <p class="mono price">250 000 сум <span class="label label-dim">за 15 секунд</span></p>
+              <button class="btn btn-primary" type="button" data-quiz-service="video">Выбрать вариант</button>
+            </div>
+          </article>
+          <p class="themes">Love story, юбилей, день рождения, машина времени, свадьба, поздравление.</p>
+        </div>
+      </div>
+    </section>
+    <section class="wrap section" id="business">
+      <p class="label">05 — Журнал</p>
+      <h2>Для вашего дела</h2>
+      <a class="ledger" href="#request" data-quiz-service="landing">
+    <img src="/photos/card-landing.jpg" alt="" />
+    <span class="label">04</span>
+    <span><strong>Лендинг</strong><small>Сайт, который принимает заявки в ваш Telegram.</small></span>
+    <span class="mono">по расчёту</span>
+    <span class="text-btn">Обсудить →</span>
+  </a>
+      <a class="ledger" href="#request" data-quiz-service="post_generator">
+    <img src="/photos/card-posts.jpg" alt="" />
+    <span class="label">05</span>
+    <span><strong>Генератор постов</strong><small>Инструмент, который готовит посты для ваших соцсетей.</small></span>
+    <span class="mono">по расчёту</span>
+    <span class="text-btn">Обсудить →</span>
+  </a>
+      <a class="ledger" href="#request" data-quiz-service="accounting">
+    <img src="/photos/card-books.jpg" alt="" />
+    <span class="label">06</span>
+    <span><strong>Программа учёта</strong><small>Доходы и расходы бизнеса в одном месте.</small></span>
+    <span class="mono">по расчёту</span>
+    <span class="text-btn">Обсудить →</span>
+  </a>
+      <form class="slip" data-lead-form="form_business" novalidate>
+    <label>Имя<input name="name" required minlength="2" maxlength="60" autocomplete="name" placeholder="например, Дилноза" /></label>
+    <label>Телефон<input name="phone" required inputmode="tel" autocomplete="tel" value="+998 " /></label>
+    <label>Услуга<select name="service"><option value="photo">Фото с вами в любой локации</option><option value="animation">Оживить фотографии</option><option value="video">Видеоролик к событию</option><option value="landing">Сайт для бизнеса</option><option value="post_generator">Генератор постов</option><option value="accounting">Программу учёта</option><option value="other">Другое / пока не знаю</option></select></label>
+    <label>Комментарий<textarea name="comment" maxlength="500"></textarea></label>
+    <label class="check"><input type="checkbox" name="consent" required /> <span>Согласен(на) на обработку данных для этого заказа <a href="#" data-privacy>подробнее</a></span></label>
+    <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+    <p class="fine">Ваши фото нужны только для заказа. В примеры работ — только с вашего согласия.</p>
+    <p class="form-error" data-form-error hidden></p>
+    <button class="btn btn-primary" type="submit">Отправить заявку</button>
+  </form>
+    </section>
+    <section class="wrap section" id="prices">
+      <p class="label">06 — Прейскурант</p>
+      <h2>Сколько стоит</h2>
+      <article class="pricesheet">
+        <div class="pricesheet-head">
+          <p class="label">Прейскурант · действует с 01.12.2026</p>
+          <svg class="stamp" viewBox="0 0 88 88" aria-hidden="true">
+    <circle cx="44" cy="44" r="40" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="44" cy="44" r="33" fill="none" stroke="currentColor" stroke-width="1"/>
+    <text x="44" y="52" text-anchor="middle" font-size="28" font-family="Literata, serif">J</text>
+  </svg>
+        </div>
+        <div class="price-row"><span>Фото в любой локации<small>за фото</small></span><span class="dots"></span><span class="mono">50 000 сум</span></div>
+        <div class="price-row"><span>Оживление фотографии<small>за фото</small></span><span class="dots"></span><span class="mono">50 000 сум</span></div>
+        <div class="price-row"><span>Видео по вашему сценарию<small>за 15 сек</small></span><span class="dots"></span><span class="mono">100 000 сум</span></div>
+        <div class="price-row"><span>Видео под ключ<small>за 15 сек</small></span><span class="dots"></span><span class="mono">250 000 сум</span></div>
+        <div class="price-row"><span>Лендинг для бизнеса</span><span class="dots"></span><span class="mono">индивидуально</span></div>
+        <div class="price-row"><span>Генератор постов</span><span class="dots"></span><span class="mono">индивидуально</span></div>
+        <div class="price-row"><span>Программа учёта</span><span class="dots"></span><span class="mono">индивидуально</span></div>
+        <p class="fine">Стоимость дополнительных услуг и сложных индивидуальных заказов рассчитывается отдельно.</p>
+        <h3 class="label">Условия</h3>
+        <ul class="terms">
+          <li>Срок — 1 неделя с предоплаты и материалов.</li><li>1 бесплатная правка. Дальше — по договорённости.</li><li>Нужно быстрее: +20% за каждый день ускорения, минимум 1 день.</li>
+          <li>Предоплата 50%, остаток после сдачи.</li><li>Оплата: Click, Payme, карта.</li><li>Скидка 10% — если заказ оформлен через тест на сайте.</li>
+        </ul>
+        <button class="btn btn-primary" type="button" data-open-quiz>Рассчитать стоимость</button>
+      </article>
+    </section>
+    <section class="wrap section" id="order">
+      <p class="label">07 — Квитанция</p>
+      <h2>Как проходит заказ</h2>
+      <ol class="steps">
+        <li><span class="label">01</span><h3>Оставляете заявку</h3><p>В тесте или короткой форме. Номер заявки приходит сразу.</p></li><li><span class="label">02</span><h3>Фото и предоплата</h3><p>Менеджер пишет в Telegram. Вы присылаете материалы и вносите 50%.</p></li><li><span class="label">03</span><h3>Делаем работу</h3><p>Обычный срок — 7 дней. Быстрее можно, с надбавкой за срочность.</p></li><li><span class="label">04</span><h3>Правка и сдача</h3><p>Одна правка входит в цену. Остаток оплачиваете после сдачи.</p></li>
+      </ol>
+    </section>
+    <section class="wrap section" id="faq">
+      <p class="label">08 — Вопросы</p>
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details><summary>Какие фото нужны и куда их отправить?</summary><p>3–10 чётких фото лица при хорошем свете, без фильтров и очков. После заявки менеджер напишет в Telegram — туда и отправляете.</p></details><details><summary>Какие сроки?</summary><p>Обычно неделя. Быстрее можно: +20% за каждый день ускорения. Самый короткий срок — 1 день, это +120%.</p></details><details><summary>Сколько правок входит?</summary><p>Одна бесплатная правка. Следующие считаем отдельно.</p></details><details><summary>Как оплатить?</summary><p>Предоплата 50%, остаток после сдачи. Click, Payme или перевод на карту.</p></details><details><summary>Как получить скидку 10%?</summary><p>Пройдите тест на сайте и оставьте заявку. Скидка закрепится за этим заказом.</p></details><details><summary>Когда вы ответите?</summary><p>Менеджер на связи с 9:00 до 18:00. Вечерние и ночные заявки берём утром.</p></details><details><summary>Что будет с моими фото?</summary><p>Они нужны только для вашего заказа. В примеры работ попадают лишь с вашего согласия.</p></details>
+      </div>
+    </section>
+    <section class="band" id="request">
+      <div class="wrap">
+        <p class="label">09 — Заявка</p>
+        <h2>Расскажите, что хотите сделать</h2>
+        <p class="lead">Короткий бланк без теста. Скидка 10% действует только если пройти тест.</p>
+        <form class="slip" data-lead-form="form_footer" novalidate>
+    <label>Имя<input name="name" required minlength="2" maxlength="60" autocomplete="name" placeholder="например, Дилноза" /></label>
+    <label>Телефон<input name="phone" required inputmode="tel" autocomplete="tel" value="+998 " /></label>
+    <label>Услуга<select name="service"><option value="photo">Фото с вами в любой локации</option><option value="animation">Оживить фотографии</option><option value="video">Видеоролик к событию</option><option value="landing">Сайт для бизнеса</option><option value="post_generator">Генератор постов</option><option value="accounting">Программу учёта</option><option value="other">Другое / пока не знаю</option></select></label>
+    <label>Комментарий<textarea name="comment" maxlength="500"></textarea></label>
+    <label class="check"><input type="checkbox" name="consent" required /> <span>Согласен(на) на обработку данных для этого заказа <a href="#" data-privacy>подробнее</a></span></label>
+    <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+    <p class="fine">Ваши фото нужны только для заказа. В примеры работ — только с вашего согласия.</p>
+    <p class="form-error" data-form-error hidden></p>
+    <button class="btn btn-primary" type="submit">Отправить заявку</button>
+  </form>
+        <p><a class="btn btn-ghost" href="https://t.me/jonlix_studio" data-telegram="footer">Написать в Telegram</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="suzani" aria-hidden="true"></div>
+    <div class="wrap foot-grid">
+      <div><svg class="stamp" viewBox="0 0 88 88" aria-hidden="true">
+    <circle cx="44" cy="44" r="40" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="44" cy="44" r="33" fill="none" stroke="currentColor" stroke-width="1"/>
+    <text x="44" y="52" text-anchor="middle" font-size="28" font-family="Literata, serif">J</text>
+  </svg><p class="label">Jonlix · Toshkent</p></div>
+      <div>
+        <p>Принимаем заказы ежедневно с 9:00 до 18:00</p>
+        <p class="mono"><a href="https://t.me/jonlix_studio" data-telegram="footer">@jonlix_studio</a></p>
+        <p class="mono"><a href="https://instagram.com/jonlix">@jonlix</a></p>
+        
+      </div>
+      <div>
+        <p><a href="/privacy/">Политика конфиденциальности</a></p>
+        <p class="label">© Jonlix, 2026</p>
+      </div>
+    </div>
+  </footer>
+  <button class="float" type="button" data-open-quiz hidden>Расчёт за 1 мин</button>
+  <div id="quiz-root"><div class="quiz full"><div class="quiz-sheet"><div class="quiz-body">
+    <div class="quiz-bar"><p class="label">Бланк заказа</p><button class="text-btn" type="button">Закрыть</button></div>
+    <div class="ticket-row"><div class="tickets"><span class="ticket is-now">1</span><span class="ticket">2</span><span class="ticket">3</span><span class="ticket">4</span><span class="ticket">5</span><span class="ticket">6</span></div><p class="label">Вопрос 1 из 6</p></div>
+    <div class="step"><h2 id="quiz-title">Что вы хотите создать?</h2><div class="options"><button class="option" type="button"><span class="box"></span><span class="option-name">Фото с вами в любой локации</span></button><button class="option" type="button"><span class="box"></span><span class="option-name">Оживить фотографии</span></button><button class="option" type="button"><span class="box"></span><span class="option-name">Видеоролик к событию</span></button><button class="option" type="button"><span class="box"></span><span class="option-name">Сайт для бизнеса</span></button><button class="option" type="button"><span class="box"></span><span class="option-name">Генератор постов</span></button><button class="option" type="button"><span class="box"></span><span class="option-name">Программу учёта</span></button><button class="option" type="button"><span class="box"></span><span class="option-name">Другое / пока не знаю</span></button></div></div>
+  </div></div></div></div>
+  <script>window.__JONLIX = {"lang":"ru","api":"","tg":"jonlix_studio","ig":"jonlix","phone":"","ga":"","ym":"","pixel":"","privacy":"/privacy/"};</script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script>
+    if (/\/quiz\/?$/.test(location.pathname) || /(?:^|[?&])quiz=1(?:&|$)/.test(location.search)) {
+      document.documentElement.classList.add('quiz-boot');
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Политика конфиденциальности — Jonlix</title>
+  <meta name="description" content="Какие данные собирает Jonlix AI Studio и как они используются." />
+  <link rel="canonical" href="https://jonlix.uz/privacy/" />
+  <meta property="og:title" content="Политика конфиденциальности — Jonlix" />
+  <meta property="og:description" content="Какие данные собирает Jonlix AI Studio и как они используются." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonlix.uz/" />
+  <meta property="og:image" content="https://jonlix.uz/og.svg" />
+  <meta name="theme-color" content="#F4EEE3" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+  <header class="top">
+    <a class="brand" href="/">
+      <span class="brand-name">Jonlix</span>
+      <span class="label">Фотоателье · AI</span>
+    </a>
+    <nav class="desk-nav" aria-label="Jonlix">
+      <a href="/#work">Работы</a>
+      <a href="/#prices">Цены</a>
+      <a href="/#order">Как заказать</a>
+      <a href="/#faq">Вопросы</a>
+    </nav>
+    <div class="top-tools">
+      <button class="btn btn-primary btn-small" type="button" data-open-quiz>Рассчитать</button>
+      <button class="menu-btn" type="button" data-menu aria-expanded="false">Меню</button>
+    </div>
+  </header>
+  <div class="sheet-nav" hidden data-sheet>
+    <button class="text-btn" type="button" data-menu-close>Закрыть</button>
+    <a href="/#work">Работы</a>
+    <a href="/#prices">Цены</a>
+    <a href="/#order">Как заказать</a>
+    <a href="/#faq">Вопросы</a>
+  </div>
+  <main id="main">
+    <article class="wrap prose">
+    <h1>Политика конфиденциальности</h1>
+    <p>Jonlix AI Studio принимает заявки на фото, видео и цифровые заказы. Для этого нам нужны имя, телефон и, если вы сами укажете, имя в Telegram и комментарий.</p><p>Заявка хранится у нас в базе на сервере и копируется в Google Таблицу. Менеджер получает её в Telegram, чтобы ответить вам.</p><p>Фотографии вы отправляете менеджеру уже в переписке. На сайте файлы не загружаются. Мы не публикуем ваши снимки без согласия.</p><p>Сайт запоминает выбранный язык, черновик теста и рекламные метки в вашем браузере. Это нужно, чтобы не начинать бланк заново и понимать, откуда вы пришли.</p><p>Можно написать нам в Telegram и попросить удалить заявку. Мы уберём её из рабочей таблицы и переписки, насколько это зависит от нас.</p><p>Нажимая «Получить расчёт» или «Отправить заявку», вы соглашаетесь на такую обработку данных ради вашего заказа.</p>
+  </article>
+  </main>
+  <footer class="foot">
+    <div class="suzani" aria-hidden="true"></div>
+    <div class="wrap foot-grid">
+      <div><svg class="stamp" viewBox="0 0 88 88" aria-hidden="true">
+    <circle cx="44" cy="44" r="40" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="44" cy="44" r="33" fill="none" stroke="currentColor" stroke-width="1"/>
+    <text x="44" y="52" text-anchor="middle" font-size="28" font-family="Literata, serif">J</text>
+  </svg><p class="label">Jonlix · Toshkent</p></div>
+      <div>
+        <p>Принимаем заказы ежедневно с 9:00 до 18:00</p>
+        <p class="mono"><a href="https://t.me/jonlix_studio" data-telegram="footer">@jonlix_studio</a></p>
+        <p class="mono"><a href="https://instagram.com/jonlix">@jonlix</a></p>
+        
+      </div>
+      <div>
+        <p><a href="/privacy/">Политика конфиденциальности</a></p>
+        <p class="label">© Jonlix, 2026</p>
+      </div>
+    </div>
+  </footer>
+  <button class="float" type="button" data-open-quiz hidden>Расчёт за 1 мин</button>
+  <div id="quiz-root"></div>
+  <script>window.__JONLIX = {"lang":"ru","api":"","tg":"jonlix_studio","ig":"jonlix","phone":"","ga":"","ym":"","pixel":"","privacy":"/privacy/"};</script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

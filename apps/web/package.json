@@ -1,0 +1,26 @@
+{
+  "name": "@jonlix/web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx scripts/write-html.ts && vite",
+    "build": "tsx scripts/write-html.ts && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "^5.2.5",
+    "@fontsource/golos-text": "^5.2.5",
+    "@fontsource/literata": "^5.2.5",
+    "@fontsource/pt-mono": "^5.2.5",
+    "@jonlix/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5"
+  }
+}

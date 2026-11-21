@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+*.db
+*.db-*
+apps/server/data/*
+!apps/server/data/.gitkeep
+.DS_Store
+desktop.ini
+coverage/
+playwright-report/
+test-results/
+*.log
+cloudflared.exe
+.pnpm-store/
